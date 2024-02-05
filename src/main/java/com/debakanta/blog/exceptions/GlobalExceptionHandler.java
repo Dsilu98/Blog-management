@@ -15,16 +15,16 @@ import com.debakanta.blog.payload.ApiResponce;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<Map<String, String>> handeleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
-		Map<String, String> errors = new HashMap<>();
-		ex.getBindingResult().getAllErrors().forEach(err->{
-			String fieldName = ((FieldError)err).getField();
-			String errorMessage = err.getDefaultMessage();
-			errors.put(fieldName, errorMessage);
-		});
-		return new ResponseEntity<Map<String,String>>(errors,HttpStatus.BAD_REQUEST);
-	}
+//	@ExceptionHandler(MethodArgumentNotValidException.class)
+//	public ResponseEntity<Map<String, String>> handeleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
+//		Map<String, String> errors = new HashMap<>();
+//		ex.getBindingResult().getAllErrors().forEach(err->{
+//			String fieldName = ((FieldError)err).getField();
+//			String errorMessage = err.getDefaultMessage();
+//			errors.put(fieldName, errorMessage);
+//		});
+//		return new ResponseEntity<Map<String,String>>(errors,HttpStatus.BAD_REQUEST);
+//	}
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<ApiResponce> handleResourceNotFoundException(ResourceNotFoundException ex){
